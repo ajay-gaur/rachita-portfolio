@@ -1,13 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 38px;
+  letter-spacing: 0.02em;
+  background: url("./images/body-bg.png");
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+header {
+  position: absolute;
+  width: 100%;
+}
+.container.home-inner {
+  padding-top: 166px;
+}
+.home-inner img {
+  width: 100%;
+  padding-bottom: 55px;
+}
+.navbar img {
+  cursor: pointer;
+}
+.home-inner {
+  padding-top: 200px;
+}
+.home-page {
+  background-size: cover;
+}
+.home-inner .col-md-6 {
+  padding: 0px 40px;
+  text-align: left;
+  color: #fff;
+}
+
+.col-md-6.mt-md-0.mt-3.card-right {
+  padding-top: 12px;
+  /* padding-right: 10%; */
+}
+
+.card-right h2 {
+  font-family: "Cormorant Upright", serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 110px;
+  line-height: 133px;
+  color: #ffffff;
+  mix-blend-mode: normal;
+  text-shadow: 0px 5px 10px rgba(87, 75, 151, 0.5);
+}
+.card-right h3 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 54px;
+}
+.home-second-inner h2 {
+  text-align: left;
+  font-family: "Cormorant Upright";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 78px;
+  color: #4c4c4c;
+}
+.home-second-inner img {
+  width: 100%;
+}
+.home-page.container p {
+  text-align: left;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 38px;
+  /* or 190% */
+  letter-spacing: 0.02em;
+  margin: 25px 0;
+}
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  max-width: 100% !important;
+  padding: 0 10% !important;
+}
+.home-second-inner img {
+  width: 100%;
+}
+.home-second-inner {
+  padding: 5% 0;
+}
+a.readmore {
+  background: linear-gradient(179.33deg, #8474a1 0.57%, #b46573 247.71%);
+  border-radius: 54px;
+  padding: 10px 30px;
+  color: #fff;
+  text-decoration: none;
+  float: left;
+}
+
+.quote-container {
+  text-align: center;
+}
+
+.quote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 4px;
+  background: linear-gradient(45deg, #8474a1, #b46573);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.quote {
+  position: relative;
+  padding: 30px;
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 49px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.quote::after {
+  content: "ajay";
+  position: absolute;
+  left: -2px;
+  top: -35px;
+  background-image: url("./images/quote.png");
+  background-size: cover;
+  color: transparent;
+  width: 98px;
+  height: 81px;
+}
+.featured-container h2 {
+  margin: 30px 0px;
+  text-align: center;
+  font-family: "Cormorant Upright";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 78px;
+  color: #4c4c4c;
+}
+
+#owl-demo .item {
+  background: #3fbf79;
+  padding: 30px 0px;
+  margin: 10px;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+#card-section div {
+  padding: 20px 5px;
+}
+
+#card-section {
+  padding: 2% 15px;
+  background-image: url("./images/card-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.text-container span {
+  font-family: "Cormorant Upright";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  float: left;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.text-container h3 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.text-container p {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.card-container {
+  text-align: center;
+  position: relative;
+}
+
+.card-container img {
+  margin: 0 auto;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  left: 0;
+}
+
+.text-container {
+  background: #fff;
+}
+
+.container.featured-container .slick-slider {
+  padding-bottom: 5%;
+}
+
+.container.featured-container h2 {
+  margin-top: 5%;
+}
+
+.rachita-page {
+  padding-bottom: 10%;
+}
+
+.rachita-page h2 {
+  padding-bottom: 20px;
+  font-family: "Cormorant Upright";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 78px;
+}
+
+.rachita-page p {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 38px;
+  letter-spacing: 0.02em;
+}
+
+.rachita-page .rachita-inner .col-md-6 {
+  padding: 0px 5%;
+  text-align: left;
+  color: #fff;
+}
+
+.rachita-inner {
+  padding-top: 90px;
+}
+.rachita-inner a {
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 10px 30px;
+  color: white;
+  font-size: 23px;
+  text-decoration: none;
+  float: left;
+  margin-top: 30px;
+}
+.article-section .rachita-inner {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.article-section h2 {
+  padding-bottom: 20px;
+  font-family: "Cormorant Upright";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 78px;
+  text-align: left;
+}
+.article-section p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: #000000;
+}
+.article-section {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  color: white;
+  text-align: left;
+  background-size: cover;
+  position: relative;
+}
+.article-section .col-md-6.mt-md-0.mt-3 {
+  background: rgba(255, 255, 255, 0.79);
+  box-shadow: 0px 4px 16px rgba(43, 22, 80, 0.2);
+  padding: 40px;
+  width: 46%;
+  margin: 2%;
+  color: black;
+}
+img.flower {
+  position: absolute;
+  right: 0;
+  top: -134px;
+}
+
+#blog-section .col-md-4 {
+  height: 327px!important;
+  background-size: cover!important;
+  background-position: right!important;
+}
+
+
+
+
+
+
+
+
