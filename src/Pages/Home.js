@@ -21,6 +21,13 @@ import shaboard from "../images/shaboard.png";
 import suzanne from "../images/suzanne.png";
 import eshe from "../images/eshe.png";
 import flower from "../images/flower.png";
+import business1 from "../images/business-1.png";
+import business2 from "../images/business-2.png";
+import business3 from "../images/business-3.png";
+import vector from "../images/Vector.png";
+import rachita1 from "../images/rachita1.png";
+import rachita2 from "../images/rachita2.png";
+import rachita3 from "../images/rachita3.png";
 
 const Home = () => {
   const settings = {
@@ -84,41 +91,65 @@ const Home = () => {
     ],
   };
 
+  const rachitaSettings = {
+    dots: true,
+    autoplay: false,
+    arrows: false,
+    adaptiveHeight: false,
+    centerPadding: "50px",
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    // stagePadding: 50,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 300,
+        settings: "unslick", // destroys slick
+      },
+    ],
+  };
+
+
   const [data, setData] = React.useState([]);
-  const [imgUrl, setImgUrl] = React.useState([]);
 
   const blogsData = () => {
     fetch("https://girlpowertalk.com/wp-json/wp/v2/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        let slicedData = data.slice(0, 3);
-        setData(slicedData);
-        slicedData.forEach((el) =>
-          setImgUrl((prev) => [...prev, el._links.self[0].href])
-        );
-      });
-  };
-
-  // console.log(imgUrl)
-  const imageData = () => {
-    imgUrl.forEach((item, i) =>
-      fetch(item)
-        .then((res) => res.json())
-        .then((result) =>
-          setData((prev) => [
-            ...prev,
-            prev.imageurl = result.yoast_head_json.og_image[0].url,
-          ])
-        )
-    );
+      .then(res => res.json())
+      .then(data => setData(data.slice(0, 3)));
   };
 
   React.useEffect(() => {
     blogsData();
-    imageData();
   }, []);
+  
+  
 
-  console.log(data);
+  // let text = excerpts(data[0].excerpt.rendered, { words: 3 })
+
+  // console.log(text)
+  // function str(){
+  //   let strArr = data[0]?.excerpt.rendered.split(" ")
+  //   for(let i=0; i< strArr?.length; i++){
+  //     if(strArr[i] === "google_fonts=&#8221;font_family:Open%20Sans%3A300%…%20regular%3A600%3Anormal&#8221;][vc_column_text]") setResult(strArr.slice(i+1).join(" "))
+  //   }
+  // }
+  // str()
+  // console.log(result)
 
   return (
     <>
@@ -310,32 +341,19 @@ const Home = () => {
       {/* Blogs section */}
 
       <section id="blog-section">
-        {/* <div className="container">
-        <div className="row">
-        <div class="col-md-4 mt-md-0 mt-3">
-          <h2>hello world</h2>
-        </div>
-        <div class="col-md-4 mt-md-0 mt-3">
-        <h2>hello world</h2>
-        </div>
-        <div class="col-md-4 mt-md-0 mt-3">
-        <h2>hello world</h2>
-        </div>
-        </div>
-        </div> */}
-
         <div className="container">
           <h2>Blogs by Rachita</h2>
           <div className="row">
-            {data.map((blog, i) => {
+            {data && data.map((blog, i) => {
               return (
-                <div
-                  class="col-md-4 mt-md-0 mt-3"
-                  style={{ background: `url(${blog.imageurl})` }}
-                >
-                  {/* <img src={imgUrl[i]} width={"400px"} /> */}
-                  <p>{blog.title.rendered}</p>
-                  {/* <p> {blog.description} </p> */}
+                <div class="card col-md-4">
+                  <div className="card-img" style={{ background: `url(${blog.yoast_head_json.og_image[0].url})`}} >
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{blog.title.rendered}</h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">Read more</a>
+                  </div>
                 </div>
               );
             })}
@@ -388,6 +406,110 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* News section */}
+
+        <section id="News-section">
+          <div className="container">
+            <h2>In The News </h2>
+            <div className="row">
+              {data && data.map((blog, i) => {
+                return (
+                  <div class="card col-md-4">
+                    <div className="card-img" style={{ background: `url(${blog.yoast_head_json.og_image[0].url})`}} >
+                      <h5 class="card-title">{blog.title.rendered}</h5>
+                    </div>
+
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="news-btn" >
+          <a href="#" className="readmore">View All</a>
+          </div>
+      </section>
+
+      {/* Business section */}
+
+      <section id="business-section">
+        <div className="container">
+          <div className="row">
+
+
+                <div class="card col-md-4">
+                  <div className="card-img" style={{ background: `url(${business1})`}} >
+                  <div className="inner-content">
+                    <h5 class="card-title">Collaboration</h5>
+                    <p class="card-text">Get in touch with us for collaboration opportunities</p>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="card col-md-4">
+                  <div className="card-img" style={{ background: `url(${business2})`}} >
+                    <div className="inner-content">
+                    <h5 class="card-title">Business & Media</h5>
+                    <p class="card-text">Get in touch with us for business & media inquiries.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card col-md-4">
+                  <div className="card-img" style={{ background: `url(${business3})`}} >
+                  <div className="inner-content">
+                    <h5 class="card-title">General Contact</h5>
+                    <p class="card-text">Looking to speak with me directly about suggestions and feedbacks.</p>
+                  </div>
+                  </div>
+                </div>
+
+
+          </div>
+        </div>
+      </section>
+
+      <section className="vlog-section" >
+          <div class="d-flex align-items-start">
+        <h2> All Vlogs</h2>
+        <img src={vector} />
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Girl Power Talk | A Frictional Book</button>
+              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
+              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
+              <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
+            </div>
+          </div>
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">first</div>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">second</div>
+              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">third</div>
+              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">fourth</div>
+            </div>
+      </section>
+
+
+      <section id="rachita-card-section">
+        <div className="container featured-container">
+          <Slider {...rachitaSettings}>
+            <div className="item">
+              <img src={rachita1} />
+            </div>
+
+            <div className="item">
+              <img src={rachita2} />
+            </div>
+
+            <div className="item">
+              <img src={rachita3} />
+            </div>
+
+            <div className="item">
+              <img src={rachita3} />
+            </div>
+          </Slider>
+        </div>
+      </section>
     </>
   );
 };
