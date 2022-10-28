@@ -47,7 +47,7 @@ header {
   /* padding-right: 10%; */
 }
 
-.card-right h2 {
+.card-right h1 {
   font-family: "Cormorant Upright", serif;
   font-style: normal;
   font-weight: 500;
@@ -161,6 +161,9 @@ a.readmore {
   font-size: 64px;
   line-height: 78px;
   color: #4c4c4c;
+}
+.featured-container div img{
+  margin: 0 auto;
 }
 
 #owl-demo .item {
@@ -377,7 +380,10 @@ section#blog-section h2 {
   color: #4C4C4C;
   padding: 50px 0px;
 }
-section#News-section h2 {
+
+
+
+section#News-section h1 {
   font-family: 'Cormorant Upright';
   font-style: normal;
   font-weight: 500;
@@ -503,7 +509,60 @@ section#business-section .card-text {
 section.vlog-section {
   float: left;
   width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2% 4%;
+  gap: 14rem;
 }
+
+.d-flex{
+  flex-direction: column;
+}
+.heading {
+  padding: 22px;
+}
+.nav-pills button {
+  margin: 9.5px 0;
+}
+.nav-pills h2{
+  font-family: 'Cormorant Upright';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 51px;
+  color: #FFFFFF;
+  margin-bottom: 4%;
+}
+
+.videos h2{
+  font-family: 'Cormorant Upright';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 78px;
+  text-align: center;
+  color: #4C4C4C;
+}
+
+.view-btn a{
+  background: linear-gradient(179.33deg, #8474a1 0.57%, #b46573 247.71%);
+  border-radius: 54px;
+  padding: 10px 30px;
+  color: #fff;
+  text-decoration: none;
+  float: left;
+  padding: 12px 67px!important;
+  font-size: 27px;
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 36px;
+}
+
+
 div#v-pills-tab {
   background: linear-gradient(180deg, #8474A1 0%, #B46573 150.83%);
   padding: 50px;
@@ -552,4 +611,47 @@ section#rachita-card-section {
     float: left;
     width: 100%;
     padding: 70px 0;
+}
+
+/* .slick-dots li button {
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 1px solid white;
+  outline: none;
+  background: transparent;
+  border-radius: 50%;
+} */
+
+
+.slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: ''!important;
+  text-align: center;
+  opacity: .25;
+  color: white!important;
+  -webkit-font-smoothing: antialiased;
+  border: 1.5px solid white!important;
+  border-radius: 50%!important;
+  background-color: transparent!important;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+  /* opacity: .75; */
+  background-color: white!important;
+
 }

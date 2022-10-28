@@ -1,42 +1,139 @@
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 767px) {
+  .article-section .col-md-6.mt-md-0.mt-3 {
+    background: rgba(255, 255, 255, 0.79);
+    box-shadow: 0px 4px 16px rgba(43, 22, 80, 0.2);
+    padding: 40px;
+    width: 100%;
+    margin: 2%;
+    color: black;
+    column-gap: 26px;
+  }
 
-    .article-section .col-md-6.mt-md-0.mt-3 {
-        background: rgba(255, 255, 255, 0.79);
-        box-shadow: 0px 4px 16px rgba(43, 22, 80, 0.2);
-        padding: 40px;
-        width: 100%;
-        margin: 2%;
-        color: black;
-        column-gap: 26px;
-    }
-    .card-right h2 {
-        font-size: 70px;
-        line-height: 70px;
-    }
-    .card-right h3 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-    .home-inner {
-        padding-top: 150px;
-    }
-    .container.quote-container {
-        margin-top: 50px;
-    }
-    .quote::after {
-        width: 75px;
-        height: 62px;
-    }
-    .quote {
-        position: relative;
-        padding: 20px;
-        font-family: "Open Sans";
-        font-style: italic;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 32px;
-        text-align: center;
-        letter-spacing: 0.02em;
-        padding-top: 50px;
-    }
+  h2{
+    font-size: 32px!important;
+  }
+  .navbar a img {
+    width: 50%;
+  }
+  .home-inner .row {
+    flex-direction: column-reverse;
+  }
+  .card-right {
+    text-align: center !important;
+  }
+  .card-right h1 {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    mix-blend-mode: normal;
+    text-shadow: 0px 5px 10px rgba(87, 75, 151, 0.5);
+  }
+  .card-right h3 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .home-second-inner h2 {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 39px;
+    color: #4c4c4c;
+  }
+
+  .card-right p{
+font-weight: 400 !important;
+font-size: 16px !important;
+line-height: 30px !important;
+letter-spacing: 0.02em !important;
+  }
+  .home-inner {
+    padding-top: 150px;
+  }
+  .container.quote-container {
+    margin-top: 50px;
+  }
+  .quote::after {
+    width: 75px;
+    height: 62px;
+  }
+  .quote {
+    position: relative;
+    padding: 20px;
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    padding-top: 50px;
+  }
+
+  section.vlog-section {
+    flex-direction: column;
+  }
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+  .home-second-inner img {
+    width: 100%;
+  }
+  #blog-section .card.col-md-4 {
+    width: 100%;
+    margin: 1.1%;
+  }
+  #business-section .card.col-md-4 {
+    width: 100%;
+  }
+
+  section#business-section h5 {
+    font-size: 30px;
+    line-height: 52px;
+  }
+
+  section#business-section .card-text {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    height: 82px;
+  }
+
+  .form-container h1 {
+    font-size: 27px;
+    line-height: 24px;
+  }
+
+  .form-bottom {
+    flex-direction: column;
+  }
+
+  footer.page-footer.font-small.blue.pt-4 {
+    width: 100%;
+    height: auto;
+  }
+
+  section#News-section .card {
+    width: 100% !important;
+    float: left;
+    height: 300px !important;
+  }
+
+  .rachita-page {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+  }
+  h2 {
+    font-size: 50px;
+    line-height: 50px;
+  }
 }

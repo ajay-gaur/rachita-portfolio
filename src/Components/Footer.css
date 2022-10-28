@@ -3,6 +3,7 @@ footer .container {
 }
 .form-container {
     background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(15px);
 }
 
 .form-container input {
@@ -60,7 +61,7 @@ footer .container {
 }
 
 .page-footer input {
-    margin: 17px 0px;
+    margin: 2px 0px;
 }
 .col-md-6.mt-md-0.mt-3.form-container {
     padding: 3% 2%;
@@ -70,4 +71,37 @@ footer .container {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+}
+
+.col-md-6.mt-md-0.mt-3.form-container {
+    text-align: start;
+}
+.form-container h1{
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+    color: #000000;
+}
+
+.form-container input::placeholder{
+    color: black;
+}
+
+.social-media-icons img{
+    margin: 0 2px;
+}
+
+footer.page-footer.font-small.blue.pt-4 {
+    margin: -68px 0;
+}
+
+.num-web  {
+    display: flex!important;
+    justify-content: space-between!important;
+}
+.page-footer input:focus {
+    outline: 0;
+    box-shadow: none;
 }

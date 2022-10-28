@@ -32,10 +32,11 @@ import rachita3 from "../images/rachita3.png";
 const Home = () => {
   const settings = {
     dots: true,
+    centerMode: true,
     infinite: true,
     speed: 500,
     slidesToShow: 5,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     slidesToScroll: 1,
     responsive: [
       {
@@ -161,7 +162,7 @@ const Home = () => {
                 <img src={rachitamam} />
               </div>
               <div class="col-md-6 mt-md-0 mt-3 card-right">
-                <h2>Rachita Sharma</h2>
+                <h1>Rachita Sharma</h1>
                 <h3>CEO & Co-Founder of Girl Power Talk</h3>
                 <p>
                   Rachita Sharma is a technology entrepreneur, financial
@@ -183,7 +184,7 @@ const Home = () => {
                 <img src={rachitamam2} />
               </div>
               <div class="col-md-6 mt-md-0 mt-3 card-right">
-                <h2>Rachita Sharma</h2>
+                <h2>About Rachita</h2>
                 <p>
                   Rachita Sharma is a technology entrepreneur, financial
                   literacy advocate and gender rights activist. Rachita is the
@@ -409,9 +410,9 @@ const Home = () => {
 
       {/* News section */}
 
-        <section id="News-section">
+      <section id="News-section">
           <div className="container">
-            <h2>In The News </h2>
+            <h1>In The News </h1>
             <div className="row">
               {data && data.map((blog, i) => {
                 return (
@@ -469,11 +470,14 @@ const Home = () => {
         </div>
       </section>
 
+
       <section className="vlog-section" >
           <div class="d-flex align-items-start">
-        <h2> All Vlogs</h2>
-        <img src={vector} />
             <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <div className="heading">
+              <h2> All Vlogs</h2>
+              <img src={vector} />
+            </div>
               <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Girl Power Talk | A Frictional Book</button>
               <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
               <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
@@ -481,10 +485,16 @@ const Home = () => {
             </div>
           </div>
             <div class="tab-content" id="v-pills-tabContent">
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">first</div>
-              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">second</div>
-              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">third</div>
-              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">fourth</div>
+              <div className="videos">
+                <h2>Videos</h2>
+              </div>
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"> <iframe width="1027" height="600" src="https://www.youtube.com/embed/2uqNwV_B8jk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><iframe width="1027" height="600" src="https://www.youtube.com/embed/WgiOjRLQGGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><iframe width="1027" height="600" src="https://www.youtube.com/embed/xeOgph91-mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><iframe width="1027" height="600" src="https://www.youtube.com/embed/ik4_1p3quIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            <div className="view-btn">
+              <a href="#">View All</a>
+            </div>
             </div>
       </section>
 
