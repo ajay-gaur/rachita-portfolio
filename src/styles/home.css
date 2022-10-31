@@ -9,7 +9,7 @@ body {
   font-size: 18px;
   line-height: 38px;
   letter-spacing: 0.02em;
-  background: url("./images/body-bg.png");
+  background: url("../images/body-bg.png");
 }
 
 code {
@@ -146,7 +146,7 @@ a.readmore {
   position: absolute;
   left: -2px;
   top: -35px;
-  background-image: url("./images/quote.png");
+  background-image: url("../images/quote.png");
   background-size: cover;
   color: transparent;
   width: 98px;
@@ -183,7 +183,7 @@ a.readmore {
 
 #card-section {
   padding: 2% 15px;
-  background-image: url("./images/card-bg.png");
+  background-image: url("../images/card-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -501,7 +501,7 @@ section#business-section .card-text {
   height: 90px;
 }
 #business-section{
-  background: url('./images/background.png');
+  background: url('../images/background.png');
   float: left;
   width: 100%;
   padding: 70px 0;
@@ -607,27 +607,11 @@ section#rachita-card-section {
 }
 
 #rachita-card-section {
-    background: url('./images/background.png');
+    background: url('../images/background.png');
     float: left;
     width: 100%;
     padding: 70px 0;
 }
-
-/* .slick-dots li button {
-  content: " ";
-  font-size: 0;
-  line-height: 0;
-  display: block;
-  width: 20px;
-  height: 20px;
-  padding: 5px;
-  cursor: pointer;
-  color: transparent;
-  border: 1px solid white;
-  outline: none;
-  background: transparent;
-  border-radius: 50%;
-} */
 
 
 .slick-dots li button:before {

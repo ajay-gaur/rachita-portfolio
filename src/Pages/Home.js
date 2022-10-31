@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/home.css'
 import rachitamam from "../images/pic.png";
 import rachitamam2 from "../images/pic2.png";
 import background from "../images/background.png";

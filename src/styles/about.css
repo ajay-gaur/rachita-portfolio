@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.about-image .col-md-6.mt-md-0.mt-3 {
+    margin: 0 auto;
+    position: relative;
+    top: 120px;
+}
+.about-image h1{
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 72px;
+    line-height: 87px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 8%;
+    mix-blend-mode: normal;
+    text-shadow: 0px 5px 10px rgba(87, 75, 151, 0.5);
+}
+.home-second-inner {
+    margin-top: 3%;
+}
+
+.about-description .aboutme-heading {
+    margin: 5rem 0;
+    text-align: center!important;
+}
+.about-description .awards-heading{
+    margin-top: 5rem;
+    text-align: center!important;
+}
+
+.about-description p{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #4C4C4C;
+}
+
+.slick img {
+    width: 80%;
+    margin: 0 auto!important;
+}
+
+
+
+h5.passion-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    color: #FFFAF9;
+}
+
+p.passion-text{
+    font-family: 'Poppins', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 33px;
+text-align: center;
+color: #FFFFFF;
+}
+
+section#passion-section {
+    padding: 5% 0;
+    padding: 5% 0;
+    float: left;
+    width: 100%;
+    background-size: cover;
+}
+#passion-section .card-body {
+    border: 4px solid white;
+    border-top: none;
+    /* border-radius: 1%; */
+}
+
+section#passion-section h2{
+    font-family: 'Cormorant Upright';
+    margin-bottom: 35px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 78px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+
+p.card-text.passion-text {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25.2466px;
+    line-height: 31px;
+    text-align: center;
+    color: #fff;
+}
+p.blog-text{
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25.2466px;
+    line-height: 31px;
+    text-align: center;
+    color: #4c4c4c;
+}
+
+#press-blog-section h2 {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 78px;
+    color: #4C4C4C;
+    text-align: center;
+}
+
+#press-blog-section .card.col-md-4{
+    border: none;
+}
+section#press-blog-section {
+    float: left;
+    margin: 5% 0;
+    width: 100%;
+}
+
+.slick .slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: ''!important;
+    text-align: center;
+    opacity: .25;
+    color: #8475A1!important;
+    -webkit-font-smoothing: antialiased;
+    border: 1.5px solid #8475A1!important;
+    border-radius: 50%!important;
+    background-color: transparent!important;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .slick .slick-dots li.slick-active button:before {
+    /* opacity: .75; */
+    background-color: #8475A1!important;
+  
+  }

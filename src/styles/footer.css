@@ -95,6 +95,10 @@ footer .container {
 
 footer.page-footer.font-small.blue.pt-4 {
     margin: -68px 0;
+
+        float: left;
+        width: 100%;
+    
 }
 
 .num-web  {

@@ -1,6 +1,6 @@
 import React from "react";
 import footerback from "../images/footer-background.png";
-import "./Footer.css";
+import "../styles/footer.css";
 import envelope from "../images/envelope.png";
 import fb from "../images/social-media-icons/fb.png";
 import youtube from "../images/social-media-icons/youtube.png";
