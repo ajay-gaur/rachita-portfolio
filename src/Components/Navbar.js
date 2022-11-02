@@ -22,7 +22,7 @@ function Navbarr(props) {
         <NavbarBrand href="/" className="me-auto">
           <img src={logo} />
         </NavbarBrand>
-        <img src={toggleicon} onClick={toggleNavbar} className="" />
+        <img src={toggleicon} onClick={toggleNavbar} />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>

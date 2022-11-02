@@ -73,8 +73,7 @@ const Footer = () => {
               <div className="form-bottom">
                 <div>
                   <div>
-                    <img src={envelope} />{" "}
-                    <span>rachitasharma@girlpowertalk.com</span>
+                    <a href="mailto:rachitasharma@girlpowertalk.com" target="_blank" > <img src={envelope} /> rachitasharma@girlpowertalk.com</a>
                   </div>
                 </div>
                 <div className="social-media-icons">

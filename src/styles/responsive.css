@@ -1,3 +1,51 @@
+
+@media only screen and (max-width: 1024px) {
+  .container{
+    padding: 0 5% !important;
+  }
+  h2 {
+    font-size: 35px!important;
+    line-height: 44px!important;
+}
+  .home-second-inner img {
+    width: 100%;
+}  
+  #core-value-section .col-md-3 {
+    height: 550px;
+    width: 46%;
+    margin: 2%;
+    background-size: cover!important;
+    background-position: center!important;
+}
+.about-description .mt-3 {
+  padding: 0;
+  width: 100%;
+}
+.about-description.about-gpt-description.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 5%!important;
+  margin: 0 auto;
+}
+.about-description .mt-3 img {
+  padding: 0;
+  width: 50%;
+  padding: 0px 1%;
+  float: left;
+}
+.home-second-inner img {
+  width: 100%;
+  margin: 20px 0px;
+}
+.col-md-6.mt-md-0.mt-3.form-container {
+  text-align: start;
+  width: 100%;
+}
+section#press-blog-section .col-md-4 {
+  width: 46%;
+}
+}
+
 @media only screen and (max-width: 767px) {
   .article-section .col-md-6.mt-md-0.mt-3 {
     background: rgba(255, 255, 255, 0.79);
@@ -136,4 +184,12 @@ letter-spacing: 0.02em !important;
     font-size: 50px;
     line-height: 50px;
   }
+
+  #core-value-section .col-md-3 {
+    height: 550px;
+    width: 46%;
+    margin: 2%;
+    background-size: cover!important;
+    background-position: center!important;
+}
 }

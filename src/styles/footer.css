@@ -72,6 +72,16 @@ footer .container {
     justify-content: space-between;
     margin-top: 40px;
 }
+.form-bottom a{
+    font-family: 'nunito';
+    text-decoration: none;
+    color: #000000;
+}
+
+.form-bottom a:hover{
+    color: #000000;
+}
+
 
 .col-md-6.mt-md-0.mt-3.form-container {
     text-align: start;
@@ -95,9 +105,8 @@ footer .container {
 
 footer.page-footer.font-small.blue.pt-4 {
     margin: -68px 0;
-
-        float: left;
-        width: 100%;
+    float: left;
+    width: 100%;
     
 }
 
@@ -109,3 +118,8 @@ footer.page-footer.font-small.blue.pt-4 {
     outline: 0;
     box-shadow: none;
 }
+
+/* .page-footer .row>*{
+    padding: 0;
+} */
+

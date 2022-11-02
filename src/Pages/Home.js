@@ -7,6 +7,10 @@ import rachitaGradient from "../images/rachita-gradient.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import fb from "../images/social-media-icons/fb.png";
+import youtube from "../images/social-media-icons/youtube.png";
+import insta from "../images/social-media-icons/insta.png";
+import linkedin from "../images/social-media-icons/linkedin.png";
 import one from "../images/slick/1.png";
 import two from "../images/slick/2.png";
 import three from "../images/slick/3.png";
@@ -33,9 +37,12 @@ import rachita3 from "../images/rachita3.png";
 const Home = () => {
   const settings = {
     dots: true,
+    dotsClass: 'slick-dots-feature slick-dots',
+    arrows: false,
     centerMode: true,
     infinite: true,
     speed: 500,
+    useCSS: true,
     slidesToShow: 5,
     adaptiveHeight: false,
     slidesToScroll: 1,
@@ -64,7 +71,10 @@ const Home = () => {
   const cardSettings = {
     dots: true,
     autoplay: true,
+    centerMode: true,
     arrows: false,
+    useCSS: true,
+    useTransform: true,
     adaptiveHeight: true,
     centerPadding: "50px",
     infinite: true,
@@ -126,8 +136,18 @@ const Home = () => {
     ],
   };
 
-
+  const [pressData, setPressData] = React.useState([])
   const [data, setData] = React.useState([]);
+  const [cardData, setCardData] = React.useState([])
+
+  
+  const getPressData = ()=>{
+    fetch('https://girlpowertalk.com/wp-json/wp/v2/ourpress')
+    .then(res => res.json())
+    .then(data => setPressData(data.slice(0,3)))
+  }
+  
+
 
   const blogsData = () => {
     fetch("https://girlpowertalk.com/wp-json/wp/v2/posts")
@@ -135,12 +155,26 @@ const Home = () => {
       .then(data => setData(data.slice(0, 3)));
   };
 
+  
+  const getCardsData = () => {
+    fetch("https://girlpowertalk.com/wp-json/wp/v2/testimonials")
+    .then(res => res.json())
+    .then(data => {
+      data.forEach( item => {
+        if(item.title.rendered === "Joshua Jones, CFP®"){
+          data.splice(data.indexOf(item), 1)
+        }
+      })
+      setCardData(data)
+    }) 
+  }
+  
   React.useEffect(() => {
     blogsData();
+    getCardsData()
+    getPressData()
   }, []);
   
-  
-
   // let text = excerpts(data[0].excerpt.rendered, { words: 3 })
 
   // console.log(text)
@@ -159,7 +193,7 @@ const Home = () => {
         <div class="home-inner">
           <div class="container-fluid text-center text-md-left">
             <div class="row">
-              <div class="col-md-6 mt-md-0 mt-3">
+              <div class="col-md-6 mt-md-0 mt-3 rachita-home-img">
                 <img src={rachitamam} />
               </div>
               <div class="col-md-6 mt-md-0 mt-3 card-right">
@@ -171,6 +205,12 @@ const Home = () => {
                   CEO of Girl Power Talk, based in India, a purpose driven
                   organization.
                 </p>
+                <div className="social-media-icons">
+                  <img src={fb} />
+                  <img src={youtube} />
+                  <img src={insta} />
+                  <img src={linkedin} />
+                </div>
               </div>
             </div>
           </div>
@@ -198,7 +238,7 @@ const Home = () => {
                   Girl Power Talk team members and expansion into new markets.
                   Read More.
                 </p>
-                <a href="#" className="readmore">
+                <a href="/about" className="readmore">
                   {" "}
                   Read More
                 </a>
@@ -217,7 +257,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container featured-container">
+      <div className="featured-container">
         <h2>Featured In</h2>
 
         <Slider {...settings}>
@@ -245,16 +285,13 @@ const Home = () => {
       <section id="card-section">
         <div className="container featured-container">
           <Slider {...cardSettings}>
-            <div className="card-container">
+            {/* <div className="card-container">
               <img src={card1} />
               <div className="text-container">
-                <span>Rachita Sharma</span>
-                <h3>CEO & Co-Founder of Girl Power Talk</h3>
+                <span>Ian Robertson, CFA</span>
+                <h3>Vice President, Odlum Brown Canada</h3>
                 <p>
-                  Rachita Sharma is a technology entrepreneur, financial
-                  literacy advocate and gender rights activist. Rachita is the
-                  CEO of Girl Power Talk, based in India, a purpose driven
-                  organization.
+                As board chair for Canada’s Responsible Investment Association, I play an active role in facilitating the integration of Environmental, Social and Governance (ESG).
                 </p>
               </div>
             </div>
@@ -262,13 +299,10 @@ const Home = () => {
             <div className="card-container">
               <img src={card2} />
               <div className="text-container">
-                <span>Rachita Sharma</span>
-                <h3>CEO & Co-Founder of Girl Power Talk</h3>
+                <span>Olatowun Candide-Johnson</span>
+                <h3>Founder & CEO, GAIA Africa</h3>
                 <p>
-                  Rachita Sharma is a technology entrepreneur, financial
-                  literacy advocate and gender rights activist. Rachita is the
-                  CEO of Girl Power Talk, based in India, a purpose driven
-                  organization.
+                Girl Power Talk is one of the few that stand out because of its passion for educating young ladies and especially at the grass roots level and therefore changing those lives for the better. The organization is committed to inspiring...
                 </p>
               </div>
             </div>
@@ -276,33 +310,43 @@ const Home = () => {
             <div className="card-container">
               <img src={card3} />
               <div className="text-container">
-                <span>Rachita Sharma</span>
-                <h3>CEO & Co-Founder of Girl Power Talk</h3>
+                <span>Dr. Freddy Bojanini</span>
+                <h3>Hospital CEO, MiRed Barranquilla IPS Colombia</h3>
                 <p>
-                  Rachita Sharma is a{" "}
-                  <strong>
-                    technology entrepreneur, financial literacy advocate and
-                    gender rights activist. Rachita is the CEO of Girl Power
-                    Talk, based in India,
-                  </strong>{" "}
-                  a purpose driven organization.
+                What makes Girl Power Talk and Rachita’s team unique is they took the time to research our market, other great examples of hospital groups in South America, and educated us on what others were doing before making recommendations.
                 </p>
               </div>
             </div>
 
             <div className="card-container">
-              <img src={card3} />
+              <img src={card1} />
               <div className="text-container">
-                <span>Rachita Sharma</span>
-                <h3>CEO & Co-Founder of Girl Power Talk</h3>
+                <span>Ian Robertson, CFA</span>
+                <h3>Vice President, Odlum Brown Canada</h3>
                 <p>
-                  Rachita Sharma is a technology entrepreneur, financial
-                  literacy advocate and gender rights activist. Rachita is the
-                  CEO of Girl Power Talk, based in India, a purpose driven
-                  organization.
+                As board chair for Canada’s Responsible Investment Association, I play an active role in facilitating the integration of Environmental, Social and Governance (ESG).
                 </p>
               </div>
-            </div>
+            </div> */}
+            {
+              cardData.map(item => {
+                return (
+                      <div className="card-container">
+                      <img src={item.yoast_head_json.og_image[0].url} />
+                      <div className="text-container">
+                        <span>{item.title.rendered}</span>
+                        {/* <h3>Vice President, Odlum Brown Canada</h3> */}
+                        <p>
+                        {/* As board chair for Canada’s Responsible Investment Association, I play an active role in facilitating the integration of Environmental, Social and Governance (ESG). */}
+                        {item.excerpt.rendered.slice(0, 150)}
+                        </p>
+                      </div>
+                    </div>
+                    )
+              } )
+
+            }
+
           </Slider>
         </div>
       </section>
@@ -333,7 +377,7 @@ const Home = () => {
                   provide a platform to share the voices and stories of girls
                   and women across India. #GirlPowerTalk
                 </p>
-                <a href="#">Know More</a>
+                <a href="/aboutgpt">Know More</a>
               </div>
             </div>
           </div>
@@ -354,7 +398,7 @@ const Home = () => {
                   <div class="card-body">
                     <h5 class="card-title">{blog.title.rendered}</h5>
                     <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Read more</a>
+                    <a href={blog.guid.rendered} target="_blank" class="btn btn-primary">Read more</a>
                   </div>
                 </div>
               );
@@ -415,20 +459,19 @@ const Home = () => {
           <div className="container">
             <h1>In The News </h1>
             <div className="row">
-              {data && data.map((blog, i) => {
+              {pressData && pressData.map((press, i) => {
                 return (
                   <div class="card col-md-4">
-                    <div className="card-img" style={{ background: `url(${blog.yoast_head_json.og_image[0].url})`}} >
-                      <h5 class="card-title">{blog.title.rendered}</h5>
+                    <div className="card-img" style={{ background: `url(${press.yoast_head_json.og_image[0].url})`}} >
+                      <h5 class="card-title">{press.title.rendered}</h5>
                     </div>
-
                   </div>
                 );
               })}
             </div>
           </div>
           <div className="news-btn" >
-          <a href="#" className="readmore">View All</a>
+          <a href="https://girlpowertalk.com/press/" className="readmore" target="_blank" >View All</a>
           </div>
       </section>
 

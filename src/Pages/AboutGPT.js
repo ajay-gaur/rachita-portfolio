@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles/aboutGPT.css'
 import gptIcon from '../images/gpt-icon.png'
+import background from '../images/background.png'
 import aboutGptBanner from '../images/about-gpt-banner.png'
 import blog1 from "../images/press-blogs/blog1.png"
 import blog2 from "../images/press-blogs/blog2.png"
@@ -9,8 +10,34 @@ import pic1 from '../images/about-gpt/pic1.png'
 import pic2 from '../images/about-gpt/pic2.png'
 import pic3 from '../images/about-gpt/pic3.png'
 import pic4 from '../images/about-gpt/pic4.png'
+import img1 from '../images/core-value/img1.png'
+import img2 from '../images/core-value/img2.png'
+import img3 from '../images/core-value/img3.png'
+import img4 from '../images/core-value/img4.png'
+import logo1 from '../images/collaborations/logo1.png'
+import logo2 from '../images/collaborations/logo2.png'
+import logo3 from '../images/collaborations/logo3.png'
+import logo4 from '../images/collaborations/logo4.png'
+import logo5 from '../images/collaborations/logo5.png'
+import logo6 from '../images/collaborations/logo6.png'
+import logo7 from '../images/collaborations/logo7.png'
+import logo8 from '../images/collaborations/logo8.png'
+import arrowIcon from '../images/arrow-icon.png'
 
 const AboutGPT = () => {
+  const [pressData, setPressData] = React.useState([])
+
+  
+  const getPressData = ()=>{
+    fetch('https://girlpowertalk.com/wp-json/wp/v2/ourpress')
+    .then(res => res.json())
+    .then(data => setPressData(data.slice(0,3)))
+  }
+  
+  React.useEffect(()=>{
+    getPressData()
+  }, [])
+
   return (
     <>
       <div
@@ -44,7 +71,7 @@ const AboutGPT = () => {
         <div className="container">
           <h2>Press Blogs</h2>
           <div className="row">
-            <div class="card col-md-4">
+            {/* <div class="card col-md-4">
               <div
                 className="card-img"
                 style={{ background: `url(${blog1})` }}
@@ -78,10 +105,125 @@ const AboutGPT = () => {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
                 </p>
               </div>
-            </div>
+            </div> */}
+            {
+              pressData.map(item => {
+                return(
+                  <div class="card col-md-4">
+                    <div
+                      className="card-img"
+                      style={{ background: `url(${item.yoast_head_json.og_image[0].url})` }}
+                    ></div>
+                    <div class="card-body">
+                      <p class="card-text blog-text">
+                      {item.title.rendered}
+                      </p>
+                    </div>
+                 </div>
+                )
+              })
+            }
           </div>
         </div>
       </section>
+
+
+      <section id="core-value-section" style={{ background: `url(${background})`}}>
+          <div className="container">
+            <div className="heading-text">
+              <h2>Core Values </h2>
+              <p>What is Lorem Ipsum ?</p>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div className="row">
+                  <div class="col-md-3" style={{ background: `linear-gradient(359.91deg, rgb(255, 255, 255) 9.49%, rgb(255, 255, 255) 34.46%, rgba(255, 255, 255, 0.9) 44.46%, rgba(255, 255, 255, 0) 60.05%), url(${img1})`}} >
+                    <div className="card-img" >
+                      <div className="inner-content">
+                        <h5 class="card-title">Women In Technology</h5>
+                        <p>We consciously facilitate opportunities for women in technology.</p>
+                        <a href="https://girlpowertalk.com/women-in-technology/" target="_blank" className="learn-more">Learn More
+                        <span>
+                        <img src={arrowIcon} alt="arrow-icon" className="arrow-icon" />
+                        </span>
+                        </a>
+                      </div>
+                    </div>
+                    </div>
+                 
+
+                  <div class="col-md-3" style={{ background: `linear-gradient(359.91deg, rgb(255, 255, 255) 9.49%, rgb(255, 255, 255) 34.46%, rgba(255, 255, 255, 0.9) 44.46%, rgba(255, 255, 255, 0) 60.05%), url(${img2})`}} >
+                    <div className="card-img">
+                    <div className="inner-content">
+                      <h5 class="card-title">Diversity & Inclusion</h5>
+                      <p>We celebrate diversity and promote the inclusion of all genders, races, and religions.</p>
+                      <a href="https://girlpowertalk.com/diversity-inclusion/" target="_blank" className="learn-more">Learn More
+                      <span>
+                      <img src={arrowIcon} alt="arrow-icon" className="arrow-icon" />
+                      </span>
+                      </a>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3" style={{ background: `linear-gradient(359.91deg, rgb(255, 255, 255) 9.49%, rgb(255, 255, 255) 34.46%, rgba(255, 255, 255, 0.9) 44.46%, rgba(255, 255, 255, 0) 60.05%), url(${img3})`}} >
+                    <div className="card-img" >
+                    <div className="inner-content">
+                      <h5 class="card-title">Generate Impact</h5>
+                      <p>We lead Girl Power Talk’s social impact projects to support youth development in Asia and Africa</p>
+                      <a href="https://girlpowertalk.com/generate-impact/" target="_blank" className="learn-more">Learn More
+                      <span>
+                      <img src={arrowIcon} alt="arrow-icon" className="arrow-icon" />
+                      </span>
+                      </a>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3" style={{ background: `linear-gradient(359.91deg, rgb(255, 255, 255) 9.49%, rgb(255, 255, 255) 34.46%, rgba(255, 255, 255, 0.9) 44.46%, rgba(255, 255, 255, 0) 60.05%), url(${img4})`}} >
+                    <div className="card-img" >
+                    <div className="inner-content">
+                      <h5 class="card-title">Entrepreneurial Culture</h5>
+                      <p>We provide access to education and develop socially conscious entrepreneurs.</p>
+                      <a href="https://girlpowertalk.com/entrepreneurial-culture/" target="_blank" className="learn-more">Learn More
+                      <span><img src={arrowIcon} alt="arrow-icon" className="arrow-icon" /></span>
+                      </a>
+                    </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </section>
+
+      <section id="collaborations">
+        <h2>collaborations</h2>
+        <div className="container">
+          <div className="row1">
+            <div><img src={logo1} /></div>
+            <div><img src={logo2} /></div>
+            <div><img src={logo3} /></div>
+            <div><img src={logo4} /></div>
+          </div>
+          <div className="row2">
+            <div><img src={logo5} /></div>
+            <div><img src={logo6} /></div>
+            <div><img src={logo7} /></div>
+            <div><img src={logo8} /></div>
+          </div>
+          </div>
+      </section>
+
+      <section id="impact-section">
+        <h2>How we Impact </h2>
+        <div className="video-container">
+          <div><iframe width="365" height="235" src="https://www.youtube.com/embed/8pSbtfapgSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div><iframe width="365" height="235" src="https://www.youtube.com/embed/ik4_1p3quIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div><iframe width="365" height="235" src="https://www.youtube.com/embed/B6oPAhFeRmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div><iframe width="365" height="235" src="https://www.youtube.com/embed/ppPoZ55OpPE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div><iframe width="365" height="235" src="https://www.youtube.com/embed/bfsdzTGEtvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
+      </section>
+
+
     </>
   );
 };

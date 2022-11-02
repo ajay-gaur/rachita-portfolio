@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral&display=swap');
+
+.container{
+    padding: 0 5% !important;
+  }
 .about-image.about-gpt-banner.container {
     /* background-size: cover; */
     /* height: 100%; */
@@ -26,4 +31,150 @@ h2.about-gpt-heading {
 }
 .about-gpt-description .col-md-6.mt-md-0.mt-3.text-center {
     padding: 3% 7%;
+}
+.card-img {
+    position: relative;
+}
+#core-value-section .inner-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 60px 20px;
+    left: 0%;
+    right: 0;
+    margin: 0 auto;
+    background: transparent;
+    top: 90%;
+}
+#core-value-section .col-md-3 {
+    height: 550px;
+}
+/* section#core-value-section {
+    margin-bottom: 6%;
+} */
+
+section#core-value-section {
+    padding: 5% 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+    width: 100%;
+}
+#core-value-section .col-md-3 {
+    height: 550px;
+    width: 22%;
+    margin: 1.5%;
+    background-size: cover!important;
+    background-position: center!important;
+}
+
+section#core-value-section p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    color: #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    padding-top: 4px!important;
+    margin-bottom: 8px!important;
+}
+section#core-value-section {
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+}
+
+a.learn-more {
+    font-family: 'Spectral';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    color: #E63946;
+}
+
+.heading-text p, .heading-text h2 {
+    color: white!important;
+    text-align: center;
+}
+.heading-text h2 {
+    color: white!important;
+    text-align: center;
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 78px;
+}
+.heading-text p {
+    font-family: 'Open Sans', sans-serif;
+}
+#core-value-section img.arrow-icon {
+    margin-left: 8px;
+}
+#core-value-section .container {
+    padding: 0px 2%!important;
+}
+
+section#collaborations {
+    float: left;
+    width: 100%;
+    background: white;
+    padding: 5% 0;
+}
+
+#core-value-section h5.card-title{
+    font-family: 'Spectral';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 31px;
+    line-height: 44px;
+    color: #000000;
+}
+
+
+#collaborations .row1, #collaborations .row2{
+    display: flex!important;
+    justify-content: space-between!important;
+}
+#collaborations .row1 {
+    margin-bottom: 30px;
+}
+
+#collaborations h2 {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 78px;
+    color: #4C4C4C;
+    text-align: center;
+    margin-bottom: 4%;
+}
+section#impact-section {
+    float: left;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+.video-container {
+    display: flex;
+    justify-content: space-around;
+}
+#impact-section h2 {
+    font-family: 'Cormorant Upright';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 78px;
+    color: #4C4C4C;
+    text-align: center;
+    margin-bottom: 40px;
 }
