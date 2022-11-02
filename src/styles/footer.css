@@ -24,7 +24,6 @@ footer .container {
     text-align: start;
 }
 .btn-container button {
-    /* position: absolute; */
     width: 209px;
     height: 60px;
     left: 975.5px;
@@ -42,15 +41,6 @@ footer .container {
     border-style: none;
 }
 
-/* .page-footer{
-        margin-top: 100px;
-        margin-bottom: 30px;
-        color: white;
-        text-align: left;
-        background-size: cover;
-        position: relative;
-} */
-
 .page-footer {
     background-size: cover;
     background-size: 100% 100%;
@@ -62,6 +52,7 @@ footer .container {
 
 .page-footer input {
     margin: 2px 0px;
+    padding-left: 0;
 }
 .col-md-6.mt-md-0.mt-3.form-container {
     padding: 3% 2%;
@@ -110,6 +101,10 @@ footer.page-footer.font-small.blue.pt-4 {
     
 }
 
+.page-footer .mb-3, .page-footer .col {
+    margin-bottom: 10px!important;
+}
+
 .num-web  {
     display: flex!important;
     justify-content: space-between!important;
@@ -118,8 +113,3 @@ footer.page-footer.font-small.blue.pt-4 {
     outline: 0;
     box-shadow: none;
 }
-
-/* .page-footer .row>*{
-    padding: 0;
-} */
-

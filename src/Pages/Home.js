@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/home.css'
+import "../styles/home.css";
 import rachitamam from "../images/pic.png";
 import rachitamam2 from "../images/pic2.png";
 import background from "../images/background.png";
@@ -17,9 +17,6 @@ import three from "../images/slick/3.png";
 import four from "../images/slick/4.png";
 import five from "../images/slick/5.png";
 import six from "../images/slick/6.png";
-import card1 from "../images/card-1.png";
-import card2 from "../images/card-2.png";
-import card3 from "../images/card-3.png";
 import articleImg from "../images/article-img.png";
 import moneyControl from "../images/money-control.png";
 import shaboard from "../images/shaboard.png";
@@ -37,7 +34,7 @@ import rachita3 from "../images/rachita3.png";
 const Home = () => {
   const settings = {
     dots: true,
-    dotsClass: 'slick-dots-feature slick-dots',
+    dotsClass: "slick-dots-feature slick-dots",
     arrows: false,
     centerMode: true,
     infinite: true,
@@ -136,59 +133,44 @@ const Home = () => {
     ],
   };
 
-  const [pressData, setPressData] = React.useState([])
+  const [pressData, setPressData] = React.useState([]);
   const [data, setData] = React.useState([]);
-  const [cardData, setCardData] = React.useState([])
+  const [cardData, setCardData] = React.useState([]);
 
-  
-  const getPressData = ()=>{
-    fetch('https://girlpowertalk.com/wp-json/wp/v2/ourpress')
-    .then(res => res.json())
-    .then(data => setPressData(data.slice(0,3)))
-  }
-  
-
+  const getPressData = () => {
+    fetch("https://girlpowertalk.com/wp-json/wp/v2/ourpress")
+      .then((res) => res.json())
+      .then((data) => setPressData(data.slice(0, 3)));
+  };
 
   const blogsData = () => {
     fetch("https://girlpowertalk.com/wp-json/wp/v2/posts")
-      .then(res => res.json())
-      .then(data => setData(data.slice(0, 3)));
+      .then((res) => res.json())
+      .then((data) => setData(data.slice(0, 3)));
   };
 
-  
   const getCardsData = () => {
     fetch("https://girlpowertalk.com/wp-json/wp/v2/testimonials")
-    .then(res => res.json())
-    .then(data => {
-      data.forEach( item => {
-        if(item.title.rendered === "Joshua Jones, CFP®"){
-          data.splice(data.indexOf(item), 1)
-        }
-      })
-      setCardData(data)
-    }) 
-  }
-  
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((item) => {
+          if (item.title.rendered === "Joshua Jones, CFP®") {
+            data.splice(data.indexOf(item), 1);
+          }
+        });
+        setCardData(data);
+      });
+  };
+
   React.useEffect(() => {
     blogsData();
-    getCardsData()
-    getPressData()
+    getCardsData();
+    getPressData();
   }, []);
-  
-  // let text = excerpts(data[0].excerpt.rendered, { words: 3 })
-
-  // console.log(text)
-  // function str(){
-  //   let strArr = data[0]?.excerpt.rendered.split(" ")
-  //   for(let i=0; i< strArr?.length; i++){
-  //     if(strArr[i] === "google_fonts=&#8221;font_family:Open%20Sans%3A300%…%20regular%3A600%3Anormal&#8221;][vc_column_text]") setResult(strArr.slice(i+1).join(" "))
-  //   }
-  // }
-  // str()
-  // console.log(result)
 
   return (
     <>
+      {/* Top banner section */}
       <div class="home-page" style={{ backgroundImage: `url(${background})` }}>
         <div class="home-inner">
           <div class="container-fluid text-center text-md-left">
@@ -217,6 +199,8 @@ const Home = () => {
         </div>
       </div>
 
+
+      {/* About Rachita section */}
       <div class="home-page container">
         <div class="home-second-inner">
           <div class="container-fluid text-center text-md-left">
@@ -248,6 +232,8 @@ const Home = () => {
         </div>
       </div>
 
+
+      {/* Quote section */}
       <div className="container quote-container">
         <div className="quote">
           <p>
@@ -257,6 +243,8 @@ const Home = () => {
         </div>
       </div>
 
+
+      {/* Featured partner slick slide section */}
       <div className="featured-container">
         <h2>Featured In</h2>
 
@@ -282,75 +270,31 @@ const Home = () => {
         </Slider>
       </div>
 
+
+      {/* Featured people slick slide section */}
       <section id="card-section">
         <div className="container featured-container">
           <Slider {...cardSettings}>
-            {/* <div className="card-container">
-              <img src={card1} />
-              <div className="text-container">
-                <span>Ian Robertson, CFA</span>
-                <h3>Vice President, Odlum Brown Canada</h3>
-                <p>
-                As board chair for Canada’s Responsible Investment Association, I play an active role in facilitating the integration of Environmental, Social and Governance (ESG).
-                </p>
-              </div>
-            </div>
-
-            <div className="card-container">
-              <img src={card2} />
-              <div className="text-container">
-                <span>Olatowun Candide-Johnson</span>
-                <h3>Founder & CEO, GAIA Africa</h3>
-                <p>
-                Girl Power Talk is one of the few that stand out because of its passion for educating young ladies and especially at the grass roots level and therefore changing those lives for the better. The organization is committed to inspiring...
-                </p>
-              </div>
-            </div>
-
-            <div className="card-container">
-              <img src={card3} />
-              <div className="text-container">
-                <span>Dr. Freddy Bojanini</span>
-                <h3>Hospital CEO, MiRed Barranquilla IPS Colombia</h3>
-                <p>
-                What makes Girl Power Talk and Rachita’s team unique is they took the time to research our market, other great examples of hospital groups in South America, and educated us on what others were doing before making recommendations.
-                </p>
-              </div>
-            </div>
-
-            <div className="card-container">
-              <img src={card1} />
-              <div className="text-container">
-                <span>Ian Robertson, CFA</span>
-                <h3>Vice President, Odlum Brown Canada</h3>
-                <p>
-                As board chair for Canada’s Responsible Investment Association, I play an active role in facilitating the integration of Environmental, Social and Governance (ESG).
-                </p>
-              </div>
-            </div> */}
-            {
-              cardData.map(item => {
-                return (
-                      <div className="card-container">
-                      <img src={item.yoast_head_json.og_image[0].url} />
-                      <div className="text-container">
-                        <span>{item.title.rendered}</span>
-                        {/* <h3>Vice President, Odlum Brown Canada</h3> */}
-                        <p>
-                        {/* As board chair for Canada’s Responsible Investment Association, I play an active role in facilitating the integration of Environmental, Social and Governance (ESG). */}
-                        {item.excerpt.rendered.slice(0, 150)}
-                        </p>
-                      </div>
-                    </div>
-                    )
-              } )
-
-            }
-
+            {cardData.map((item) => {
+              let contentText = new DOMParser()
+                .parseFromString(item.excerpt.rendered, "text/html")
+                .documentElement.textContent.slice(0, 150);
+              return (
+                <div className="card-container">
+                  <img src={item.yoast_head_json.og_image[0].url} />
+                  <div className="text-container">
+                    <span>{item.title.rendered}</span>
+                    <p>{contentText}</p>
+                  </div>
+                </div>
+              );
+            })}
           </Slider>
         </div>
       </section>
 
+
+      {/* About Girl Power Talk section */}
       <div
         class="rachita-page"
         style={{ backgroundImage: `url(${rachitaGradient})` }}
@@ -384,29 +328,41 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Blogs section */}
 
+      {/* Blogs section */}
       <section id="blog-section">
         <div className="container">
           <h2>Blogs by Rachita</h2>
           <div className="row">
-            {data && data.map((blog, i) => {
-              return (
-                <div class="card col-md-4">
-                  <div className="card-img" style={{ background: `url(${blog.yoast_head_json.og_image[0].url})`}} >
+            {data &&
+              data.map((blog, i) => {
+                return (
+                  <div class="card col-md-4">
+                    <div
+                      className="card-img"
+                      style={{
+                        background: `url(${blog.yoast_head_json.og_image[0].url})`,
+                      }}
+                    ></div>
+                    <div class="card-body">
+                      <h5 class="card-title">{blog.title.rendered}</h5>
+                      <p class="card-text"></p>
+                      <a
+                        href={blog.guid.rendered}
+                        target="_blank"
+                        class="btn btn-primary"
+                      >
+                        Read more
+                      </a>
+                    </div>
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">{blog.title.rendered}</h5>
-                    <p class="card-text"></p>
-                    <a href={blog.guid.rendered} target="_blank" class="btn btn-primary">Read more</a>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </section>
 
+      {/* Article section */}
       <div
         class="article-section"
         style={{ backgroundImage: `url(${articleImg})` }}
@@ -453,96 +409,232 @@ const Home = () => {
         </div>
       </div>
 
-      {/* News section */}
 
+      {/* News section */}
       <section id="News-section">
-          <div className="container">
-            <h1>In The News </h1>
-            <div className="row">
-              {pressData && pressData.map((press, i) => {
+        <div className="container">
+          <h1>In The News </h1>
+          <div className="row">
+            {pressData &&
+              pressData.map((press, i) => {
                 return (
                   <div class="card col-md-4">
-                    <div className="card-img" style={{ background: `url(${press.yoast_head_json.og_image[0].url})`}} >
+                    <div
+                      className="card-img"
+                      style={{
+                        background: `url(${press.yoast_head_json.og_image[0].url})`,
+                      }}
+                    >
                       <h5 class="card-title">{press.title.rendered}</h5>
                     </div>
                   </div>
                 );
               })}
-            </div>
           </div>
-          <div className="news-btn" >
-          <a href="https://girlpowertalk.com/press/" className="readmore" target="_blank" >View All</a>
-          </div>
+        </div>
+        <div className="news-btn">
+          <a
+            href="https://girlpowertalk.com/press/"
+            className="readmore"
+            target="_blank"
+          >
+            View All
+          </a>
+        </div>
       </section>
 
-      {/* Business section */}
 
+      {/* Business section */}
       <section id="business-section">
         <div className="container">
           <div className="row">
-
-
-                <div class="card col-md-4">
-                  <div className="card-img" style={{ background: `url(${business1})`}} >
-                  <div className="inner-content">
-                    <h5 class="card-title">Collaboration</h5>
-                    <p class="card-text">Get in touch with us for collaboration opportunities</p>
-                  </div>
-                  </div>
+            <div class="card col-md-4">
+              <div
+                className="card-img"
+                style={{ background: `url(${business1})` }}
+              >
+                <div className="inner-content">
+                  <h5 class="card-title">Collaboration</h5>
+                  <p class="card-text">
+                    Get in touch with us for collaboration opportunities
+                  </p>
                 </div>
+              </div>
+            </div>
 
-                <div class="card col-md-4">
-                  <div className="card-img" style={{ background: `url(${business2})`}} >
-                    <div className="inner-content">
-                    <h5 class="card-title">Business & Media</h5>
-                    <p class="card-text">Get in touch with us for business & media inquiries.</p>
-                    </div>
-                  </div>
+            <div class="card col-md-4">
+              <div
+                className="card-img"
+                style={{ background: `url(${business2})` }}
+              >
+                <div className="inner-content">
+                  <h5 class="card-title">Business & Media</h5>
+                  <p class="card-text">
+                    Get in touch with us for business & media inquiries.
+                  </p>
                 </div>
+              </div>
+            </div>
 
-                <div class="card col-md-4">
-                  <div className="card-img" style={{ background: `url(${business3})`}} >
-                  <div className="inner-content">
-                    <h5 class="card-title">General Contact</h5>
-                    <p class="card-text">Looking to speak with me directly about suggestions and feedbacks.</p>
-                  </div>
-                  </div>
+            <div class="card col-md-4">
+              <div
+                className="card-img"
+                style={{ background: `url(${business3})` }}
+              >
+                <div className="inner-content">
+                  <h5 class="card-title">General Contact</h5>
+                  <p class="card-text">
+                    Looking to speak with me directly about suggestions and
+                    feedbacks.
+                  </p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
 
-
+      {/* Vlog video section */}
+      <section className="vlog-section">
+        <div class="d-flex align-items-start">
+          <div
+            class="nav flex-column nav-pills me-3"
+            id="v-pills-tab"
+            role="tablist"
+            aria-orientation="vertical"
+          >
+            <div className="heading">
+              <h2> All Vlogs</h2>
+              <img src={vector} />
+            </div>
+            <button
+              class="nav-link active"
+              id="v-pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-home"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-home"
+              aria-selected="true"
+            >
+              Girl Power Talk | A Frictional Book
+            </button>
+            <button
+              class="nav-link"
+              id="v-pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-profile"
+              aria-selected="false"
+            >
+              Make the Journey Purposeful | Impacting Lives
+            </button>
+            <button
+              class="nav-link"
+              id="v-pills-messages-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-messages"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-messages"
+              aria-selected="false"
+            >
+              Make the Journey Purposeful | Impacting Lives
+            </button>
+            <button
+              class="nav-link"
+              id="v-pills-settings-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#v-pills-settings"
+              type="button"
+              role="tab"
+              aria-controls="v-pills-settings"
+              aria-selected="false"
+            >
+              Make the Journey Purposeful | Impacting Lives
+            </button>
+          </div>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+          <div className="videos">
+            <h2>Videos</h2>
+          </div>
+          <div
+            class="tab-pane fade show active"
+            id="v-pills-home"
+            role="tabpanel"
+            aria-labelledby="v-pills-home-tab"
+          >
+            {" "}
+            <iframe
+              width="1027"
+              height="600"
+              src="https://www.youtube.com/embed/2uqNwV_B8jk"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>{" "}
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-pills-profile"
+            role="tabpanel"
+            aria-labelledby="v-pills-profile-tab"
+          >
+            <iframe
+              width="1027"
+              height="600"
+              src="https://www.youtube.com/embed/WgiOjRLQGGk"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-pills-messages"
+            role="tabpanel"
+            aria-labelledby="v-pills-messages-tab"
+          >
+            <iframe
+              width="1027"
+              height="600"
+              src="https://www.youtube.com/embed/xeOgph91-mw"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="v-pills-settings"
+            role="tabpanel"
+            aria-labelledby="v-pills-settings-tab"
+          >
+            <iframe
+              width="1027"
+              height="600"
+              src="https://www.youtube.com/embed/ik4_1p3quIk"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div className="view-btn">
+            <a href="#">View All</a>
           </div>
         </div>
       </section>
 
 
-      <section className="vlog-section" >
-          <div class="d-flex align-items-start">
-            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <div className="heading">
-              <h2> All Vlogs</h2>
-              <img src={vector} />
-            </div>
-              <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Girl Power Talk | A Frictional Book</button>
-              <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
-              <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
-              <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Make the Journey Purposeful | Impacting Lives</button>
-            </div>
-          </div>
-            <div class="tab-content" id="v-pills-tabContent">
-              <div className="videos">
-                <h2>Videos</h2>
-              </div>
-              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"> <iframe width="1027" height="600" src="https://www.youtube.com/embed/2uqNwV_B8jk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div>
-              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><iframe width="1027" height="600" src="https://www.youtube.com/embed/WgiOjRLQGGk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><iframe width="1027" height="600" src="https://www.youtube.com/embed/xeOgph91-mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><iframe width="1027" height="600" src="https://www.youtube.com/embed/ik4_1p3quIk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-            <div className="view-btn">
-              <a href="#">View All</a>
-            </div>
-            </div>
-      </section>
-
-
+      {/* Rachita images section */}
       <section id="rachita-card-section">
         <div className="container featured-container">
           <Slider {...rachitaSettings}>
