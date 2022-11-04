@@ -1,7 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import "../styles/about.css";
-// import "../styles/home.css";
 import background from "../images/background.png";
 import aboutRachita from "../images/about-rachita.png";
 import slickCard1 from "../images/slick-card/slick-card-1.png";

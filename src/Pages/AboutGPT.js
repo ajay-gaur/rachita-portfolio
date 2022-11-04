@@ -3,9 +3,9 @@ import '../styles/aboutGPT.css'
 import gptIcon from '../images/gpt-icon.png'
 import background from '../images/background.png'
 import aboutGptBanner from '../images/about-gpt-banner.png'
-import blog1 from "../images/press-blogs/blog1.png"
-import blog2 from "../images/press-blogs/blog2.png"
-import blog3 from "../images/press-blogs/blog3.png"
+// import blog1 from "../images/press-blogs/blog1.png"
+// import blog2 from "../images/press-blogs/blog2.png"
+// import blog3 from "../images/press-blogs/blog3.png"
 import pic1 from '../images/about-gpt/pic1.png'
 import pic2 from '../images/about-gpt/pic2.png'
 import pic3 from '../images/about-gpt/pic3.png'
@@ -71,41 +71,6 @@ const AboutGPT = () => {
         <div className="container">
           <h2>Press Blogs</h2>
           <div className="row">
-            {/* <div class="card col-md-4">
-              <div
-                className="card-img"
-                style={{ background: `url(${blog1})` }}
-              ></div>
-              <div class="card-body">
-                <p class="card-text blog-text">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
-                </p>
-              </div>
-            </div>
-
-            <div class="card col-md-4">
-              <div
-                className="card-img"
-                style={{ background: `url(${blog2})` }}
-              ></div>
-              <div class="card-body">
-                <p class="card-text blog-text">
-                #WNCYA: The labels we fought to lose ft Rachita Sharma
-                </p>
-              </div>
-            </div>
-
-            <div class="card col-md-4">
-              <div
-                className="card-img"
-                style={{ background: `url(${blog3})` }}
-              ></div>
-              <div class="card-body">
-                <p class="card-text blog-text">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
-                </p>
-              </div>
-            </div> */}
             {
               pressData.map(item => {
                 return(
@@ -148,8 +113,7 @@ const AboutGPT = () => {
                         </a>
                       </div>
                     </div>
-                    </div>
-                 
+                    </div>     
 
                   <div class="col-md-3" style={{ background: `linear-gradient(359.91deg, rgb(255, 255, 255) 9.49%, rgb(255, 255, 255) 34.46%, rgba(255, 255, 255, 0.9) 44.46%, rgba(255, 255, 255, 0) 60.05%), url(${img2})`}} >
                     <div className="card-img">

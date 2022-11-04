@@ -7,10 +7,6 @@ import rachitaGradient from "../images/rachita-gradient.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import fb from "../images/social-media-icons/fb.png";
-import youtube from "../images/social-media-icons/youtube.png";
-import insta from "../images/social-media-icons/insta.png";
-import linkedin from "../images/social-media-icons/linkedin.png";
 import one from "../images/slick/1.png";
 import two from "../images/slick/2.png";
 import three from "../images/slick/3.png";
@@ -30,6 +26,11 @@ import vector from "../images/Vector.png";
 import rachita1 from "../images/rachita1.png";
 import rachita2 from "../images/rachita2.png";
 import rachita3 from "../images/rachita3.png";
+import arrowDown from "../images/arrow-down.png";
+import fb from '../images/social-icons-banner/fb.png'
+import youtube from '../images/social-icons-banner/youtube.png'
+import insta from '../images/social-icons-banner/insta.png'
+import linkedin from '../images/social-icons-banner/linkedin.png'
 
 const Home = () => {
   const settings = {
@@ -43,6 +44,38 @@ const Home = () => {
     slidesToShow: 5,
     adaptiveHeight: false,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 300,
+        settings: "unslick", // destroys slick
+      },
+    ],
+  };
+
+  const vlogSettings = {
+    arrows: false,
+    dots: false,
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    swipeToSlide: true,
+
     responsive: [
       {
         breakpoint: 1024,
@@ -136,6 +169,9 @@ const Home = () => {
   const [pressData, setPressData] = React.useState([]);
   const [data, setData] = React.useState([]);
   const [cardData, setCardData] = React.useState([]);
+  const [vlogData, setVlogData] = React.useState([]);
+  const [video, setVideo] = React.useState();
+  const ref = React.createRef();
 
   const getPressData = () => {
     fetch("https://girlpowertalk.com/wp-json/wp/v2/ourpress")
@@ -162,11 +198,23 @@ const Home = () => {
       });
   };
 
+  const getVlogData = () => {
+    fetch("https://girlpowertalk.com/wp-json/wp/v2/ourvideos")
+      .then((res) => res.json())
+      .then((data) => {
+        setVlogData(data);
+        setVideo(data[0]);
+      });
+  };
+
   React.useEffect(() => {
     blogsData();
     getCardsData();
     getPressData();
+    getVlogData();
   }, []);
+
+  const next = () => ref.current.slickNext();
 
   return (
     <>
@@ -198,7 +246,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
 
       {/* About Rachita section */}
       <div class="home-page container">
@@ -232,7 +279,6 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* Quote section */}
       <div className="container quote-container">
         <div className="quote">
@@ -242,7 +288,6 @@ const Home = () => {
           </p>
         </div>
       </div>
-
 
       {/* Featured partner slick slide section */}
       <div className="featured-container">
@@ -270,15 +315,15 @@ const Home = () => {
         </Slider>
       </div>
 
-
       {/* Featured people slick slide section */}
       <section id="card-section">
         <div className="container featured-container">
           <Slider {...cardSettings}>
             {cardData.map((item) => {
-              let contentText = new DOMParser()
-                .parseFromString(item.excerpt.rendered, "text/html")
-                .documentElement.textContent.slice(0, 150);
+              let contentText =
+                new DOMParser()
+                  .parseFromString(item.excerpt.rendered, "text/html")
+                  .documentElement.textContent.slice(0, 150) + "...";
               return (
                 <div className="card-container">
                   <img src={item.yoast_head_json.og_image[0].url} />
@@ -292,7 +337,6 @@ const Home = () => {
           </Slider>
         </div>
       </section>
-
 
       {/* About Girl Power Talk section */}
       <div
@@ -328,7 +372,6 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* Blogs section */}
       <section id="blog-section">
         <div className="container">
@@ -351,6 +394,7 @@ const Home = () => {
                         href={blog.guid.rendered}
                         target="_blank"
                         class="btn btn-primary"
+                        rel="noreferrer"
                       >
                         Read more
                       </a>
@@ -367,7 +411,7 @@ const Home = () => {
         class="article-section"
         style={{ backgroundImage: `url(${articleImg})` }}
       >
-        <img className="flower" src={flower} />
+        <img className="flower" src={flower} alt="flower-img" />
         <div className="container">
           <div class="rachita-inner">
             <div class="container-fluid text-center text-md-left">
@@ -409,7 +453,6 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* News section */}
       <section id="News-section">
         <div className="container">
@@ -437,12 +480,12 @@ const Home = () => {
             href="https://girlpowertalk.com/press/"
             className="readmore"
             target="_blank"
+            rel="noreferrer"
           >
             View All
           </a>
         </div>
       </section>
-
 
       {/* Business section */}
       <section id="business-section">
@@ -493,7 +536,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
 
       {/* Vlog video section */}
       <section className="vlog-section">
@@ -508,119 +550,50 @@ const Home = () => {
               <h2> All Vlogs</h2>
               <img src={vector} />
             </div>
-            <button
-              class="nav-link active"
-              id="v-pills-home-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#v-pills-home"
-              type="button"
-              role="tab"
-              aria-controls="v-pills-home"
-              aria-selected="true"
-            >
-              Girl Power Talk | A Frictional Book
-            </button>
-            <button
-              class="nav-link"
-              id="v-pills-profile-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#v-pills-profile"
-              type="button"
-              role="tab"
-              aria-controls="v-pills-profile"
-              aria-selected="false"
-            >
-              Make the Journey Purposeful | Impacting Lives
-            </button>
-            <button
-              class="nav-link"
-              id="v-pills-messages-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#v-pills-messages"
-              type="button"
-              role="tab"
-              aria-controls="v-pills-messages"
-              aria-selected="false"
-            >
-              Make the Journey Purposeful | Impacting Lives
-            </button>
-            <button
-              class="nav-link"
-              id="v-pills-settings-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#v-pills-settings"
-              type="button"
-              role="tab"
-              aria-controls="v-pills-settings"
-              aria-selected="false"
-            >
-              Make the Journey Purposeful | Impacting Lives
-            </button>
+            <Slider ref={ref} {...vlogSettings}>
+              {vlogData.map((vlog, i) => {
+                return (
+                  <div className="item">
+                    <button
+                      onClick={() => setVideo(vlog)}
+                      class={i === 0 ? "nav-link active" : "nav-link"}
+                      id="v-pills-home-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#v-pills-home"
+                      type="button"
+                      role="tab"
+                      aria-controls="v-pills-home"
+                      aria-selected="false"
+                    >
+                      {vlog.title.rendered}
+                    </button>
+                  </div>
+                );
+              })}
+            </Slider>
+            <div className="arrow-down-container">
+              <img src={arrowDown} onClick={next} alt="arrow-down" />
+            </div>
           </div>
         </div>
+
         <div class="tab-content" id="v-pills-tabContent">
           <div className="videos">
             <h2>Videos</h2>
           </div>
           <div
-            class="tab-pane fade show active"
+            class="tabe-pane fade show active"
             id="v-pills-home"
             role="tabpanel"
             aria-labelledby="v-pills-home-tab"
           >
-            {" "}
             <iframe
               width="1027"
               height="600"
-              src="https://www.youtube.com/embed/2uqNwV_B8jk"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>{" "}
-          </div>
-          <div
-            class="tab-pane fade"
-            id="v-pills-profile"
-            role="tabpanel"
-            aria-labelledby="v-pills-profile-tab"
-          >
-            <iframe
-              width="1027"
-              height="600"
-              src="https://www.youtube.com/embed/WgiOjRLQGGk"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div
-            class="tab-pane fade"
-            id="v-pills-messages"
-            role="tabpanel"
-            aria-labelledby="v-pills-messages-tab"
-          >
-            <iframe
-              width="1027"
-              height="600"
-              src="https://www.youtube.com/embed/xeOgph91-mw"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div
-            class="tab-pane fade"
-            id="v-pills-settings"
-            role="tabpanel"
-            aria-labelledby="v-pills-settings-tab"
-          >
-            <iframe
-              width="1027"
-              height="600"
-              src="https://www.youtube.com/embed/ik4_1p3quIk"
+              src={
+                video &&
+                video.content.rendered.split(" ")[1].slice(5).replace('"', "")
+              }
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -632,7 +605,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
 
       {/* Rachita images section */}
       <section id="rachita-card-section">
